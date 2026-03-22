@@ -38,7 +38,7 @@ jobs:
           git config user.name "GitHub Actions"
           git add k8s/deployment.yaml
           git commit -m "Update image tag to $SHORT_SHA"
-          git push
+          git push 
   
 
     
