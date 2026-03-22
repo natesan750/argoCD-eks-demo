@@ -7,14 +7,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-node-app
+      app: gha-nodeapp
   template:
     metadata:
       labels:
-        app: my-node-app
+        app: gha-nodeapp
     spec:
       containers:
-      - name: my-node-app
+      - name: gha-nodeapp
         image: natesan750/gha-nodeapp:latest
         ports:
         - containerPort: 3000
