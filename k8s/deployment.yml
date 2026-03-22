@@ -14,14 +14,14 @@ spec:
         app: gha-nodeapp
     spec:
       containers:
-      - name: gha-nodeapp
-        image: natesan750/gha-nodeapp:latest
-        ports:
-        - containerPort: 3000
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "100m"
-          limits:
-            memory: "128Mi"
-            cpu: "200m"
+        - name: gha-nodeapp
+          image: natesan750/gha-nodeapp:d18b4d8
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
