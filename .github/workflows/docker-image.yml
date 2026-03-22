@@ -30,7 +30,7 @@ jobs:
       - name: Update deployment.yaml with new image tag
         run: |
           SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
-          yq e '.spec.template.spec.containers[0].image = "natesan750/gha-nodeapp:'"$SHORT_SHA"'"' -i k8s/deployment.yaml
+          yq e '.spec.template.spec.containers[0].image = "natesan750/gha-nodeapp:'"$SHORT_SHA"'"' -i k8s/deployment.yml
 
       - name: Commit and push updated deployment.yaml
         run: |
