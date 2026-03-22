@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-node-app
-        image: natesan750/my-node-app:latest
+        image: natesan750/gha-nodeapp:latest
         ports:
         - containerPort: 3000
         resources:
