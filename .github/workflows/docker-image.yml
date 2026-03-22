@@ -9,10 +9,22 @@ jobs:
     steps:
       - name: code checkout
         uses: actions/checkout@v4
-      - name: Build docker image
-        run: "docker build -t natesan750/gha-nodeapp:${GITHUB_SHA::7}."
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: "${ secrets.DOCKER_USERNAME }"
-          password: "${ secrets.DOCKER_PASSWORD }"
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push docker image
+        run: |
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          docker build -t natesan750/gha-nodeapp:$SHORT_SHA .
+          docker push natesan750/gha-nodeapp:$SHORT_SHA
+  
+
+    
+
+          
+        
+     
