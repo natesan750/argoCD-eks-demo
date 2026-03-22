@@ -4,7 +4,7 @@ const PORT = 3000;
 
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'Hello from Kubernetes!',
+    message: 'Hello from Kubernetes and natesan has just completed github action with argoCD!',
     version: '1.0.0'
   });
 });
