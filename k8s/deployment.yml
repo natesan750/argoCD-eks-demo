@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: gha-nodeapp
-          image: natesan750/gha-nodeapp:7b26bf1
+          image: natesan750/gha-nodeapp:ddcfcad
           ports:
             - containerPort: 3000
           resources:
