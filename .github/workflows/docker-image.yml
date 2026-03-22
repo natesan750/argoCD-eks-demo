@@ -1,0 +1,13 @@
+name: kubernetes CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  nodeapp-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v4
+      - name: Build docker image
+        run: "docker build -t natesan750/gha-nodeapp:$GITHUB_SHA ."
