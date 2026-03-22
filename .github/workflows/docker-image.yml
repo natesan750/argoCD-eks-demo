@@ -21,6 +21,24 @@ jobs:
           SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
           docker build -t natesan750/gha-nodeapp:$SHORT_SHA .
           docker push natesan750/gha-nodeapp:$SHORT_SHA
+
+      - name: Install yq
+        run: |
+          sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+          sudo chmod +x /usr/bin/yq
+
+      - name: Update deployment.yaml with new image tag
+        run: |
+          SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          yq e '.spec.template.spec.containers[0].image = "natesan750/gha-nodeapp:'"$SHORT_SHA"'"' -i k8s/deployment.yaml
+
+      - name: Commit and push updated deployment.yaml
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add k8s/deployment.yaml
+          git commit -m "Update image tag to $SHORT_SHA"
+          git push
   
 
     
