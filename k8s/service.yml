@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-node-app-service
+  name: gha-nodeapp-service
   namespace: default
 spec:
   selector:
-    app: my-node-app
+    app: gha-nodeapp
   ports:
   - protocol: TCP
     port: 80
